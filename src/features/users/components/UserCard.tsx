@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
+import Typography from '../../../components/shared/Typography';
 import { User } from '../types';
 
 interface Props {
@@ -15,19 +16,19 @@ export default function UserCard({ user }: Props) {
         resizeMode="cover"
       />
       <View style={styles.info}>
-        <Text style={styles.name}>
+        <Typography style={styles.name}>
           {user.firstName} {user.lastName}
-        </Text>
-        <Text style={styles.role}>{user.role}</Text>
+        </Typography>
+        <Typography style={styles.role}>{user.role}</Typography>
         <View style={styles.detail}>
-          <Text style={styles.label}>✉ </Text>
-          <Text style={styles.value} numberOfLines={1}>
+          <Typography style={styles.label}>✉ </Typography>
+          <Typography style={styles.value} numberOfLines={1}>
             {user.email}
-          </Text>
+          </Typography>
         </View>
         <View style={styles.detail}>
-          <Text style={styles.label}>📞 </Text>
-          <Text style={styles.value}>{user.phone}</Text>
+          <Typography style={styles.label}>📞 </Typography>
+          <Typography style={styles.value}>{user.phone}</Typography>
         </View>
       </View>
     </View>

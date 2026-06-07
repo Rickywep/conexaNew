@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   View,
-  Text,
   TextInput,
   StyleSheet,
   TextInputProps,
 } from 'react-native';
+import Typography from '../../../components/shared/Typography';
 
 interface Props extends TextInputProps {
   label: string;
@@ -15,14 +15,14 @@ interface Props extends TextInputProps {
 export default function FormInput({ label, error, style, ...rest }: Props) {
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.label}>{label}</Text>
+      <Typography style={styles.label}>{label}</Typography>
       <TextInput
         style={[styles.input, error ? styles.inputError : null, style]}
         placeholderTextColor="#9CA3AF"
         autoCapitalize="none"
         {...rest}
       />
-      {error ? <Text style={styles.error}>{error}</Text> : null}
+      {error ? <Typography style={styles.error}>{error}</Typography> : null}
     </View>
   );
 }

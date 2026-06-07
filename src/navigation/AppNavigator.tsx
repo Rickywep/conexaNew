@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import Typography from '../components/shared/Typography';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -49,7 +49,7 @@ function TabNavigator() {
             Profile: focused ? '👤' : '🔘',
           };
           return (
-            <Text style={{ fontSize: 22 }}>{icons[route.name] ?? '•'}</Text>
+            <Typography style={{ fontSize: 22 }}>{icons[route.name] ?? '•'}</Typography>
           );
         },
       })}>

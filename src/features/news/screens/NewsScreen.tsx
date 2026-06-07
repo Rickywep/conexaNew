@@ -2,11 +2,11 @@ import React, { useMemo } from 'react';
 import {
   View,
   FlatList,
-  Text,
   StyleSheet,
   SafeAreaView,
   StatusBar,
 } from 'react-native';
+import Typography from '../../../components/shared/Typography';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Article, NewsStackParamList } from '../types';
 import { useAppContext } from '../../../context/AppContext';
@@ -52,16 +52,16 @@ export default function NewsScreen({ navigation }: Props) {
     <SafeAreaView style={styles.safe}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
       <View style={styles.headerBar}>
-        <Text style={styles.brand}>Conexa News</Text>
-        <Text style={styles.favCount}>
+        <Typography style={styles.brand}>Conexa News</Typography>
+        <Typography style={styles.favCount}>
           ★ {favorites.length}
-        </Text>
+        </Typography>
       </View>
       <SearchBar value={state.searchQuery} onChangeText={handleSearch} />
       {state.searchQuery.length > 0 && (
-        <Text style={styles.resultCount}>
+        <Typography style={styles.resultCount}>
           {filtered.length} resultado{filtered.length !== 1 ? 's' : ''}
-        </Text>
+        </Typography>
       )}
       <FlatList
         data={filtered}
@@ -71,7 +71,7 @@ export default function NewsScreen({ navigation }: Props) {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           <View style={styles.empty}>
-            <Text style={styles.emptyText}>Sin resultados para "{state.searchQuery}"</Text>
+            <Typography style={styles.emptyText}>Sin resultados para "{state.searchQuery}"</Typography>
           </View>
         }
       />

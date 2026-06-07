@@ -1,12 +1,12 @@
 import React from 'react';
 import {
   View,
-  Text,
   Image,
   Pressable,
   StyleSheet,
   Dimensions,
 } from 'react-native';
+import Typography from '../../../components/shared/Typography';
 import { Article } from '../types';
 
 const { width } = Dimensions.get('window');
@@ -37,21 +37,21 @@ export default function NewsCard({
       <View style={styles.body}>
         <View style={styles.header}>
           <View style={styles.categoryBadge}>
-            <Text style={styles.categoryText}>{article.category}</Text>
+            <Typography style={styles.categoryText}>{article.category}</Typography>
           </View>
           <Pressable onPress={onToggleFavorite} hitSlop={10}>
-            <Text style={styles.favIcon}>{isFavorite ? '★' : '☆'}</Text>
+            <Typography style={styles.favIcon}>{isFavorite ? '★' : '☆'}</Typography>
           </Pressable>
         </View>
-        <Text style={styles.title} numberOfLines={2}>
+        <Typography style={styles.title} numberOfLines={2}>
           {article.title}
-        </Text>
-        <Text style={styles.content} numberOfLines={3}>
+        </Typography>
+        <Typography style={styles.content} numberOfLines={3}>
           {article.summary}
-        </Text>
+        </Typography>
         <View style={styles.footer}>
-          <Text style={styles.author}>{article.author}</Text>
-          <Text style={styles.date}>{formatDate(article.publishedAt)}</Text>
+          <Typography style={styles.author}>{article.author}</Typography>
+          <Typography style={styles.date}>{formatDate(article.publishedAt)}</Typography>
         </View>
       </View>
     </Pressable>

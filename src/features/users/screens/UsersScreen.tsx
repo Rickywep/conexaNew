@@ -2,11 +2,11 @@ import React from 'react';
 import {
   FlatList,
   View,
-  Text,
   StyleSheet,
   SafeAreaView,
   StatusBar,
 } from 'react-native';
+import Typography from '../../../components/shared/Typography';
 import { useAppContext } from '../../../context/AppContext';
 import UserCard from '../components/UserCard';
 import { User } from '../types';
@@ -20,8 +20,8 @@ export default function UsersScreen() {
     <SafeAreaView style={styles.safe}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
       <View style={styles.headerBar}>
-        <Text style={styles.title}>Equipo</Text>
-        <Text style={styles.count}>{state.users.length} personas</Text>
+        <Typography style={styles.title}>Equipo</Typography>
+        <Typography style={styles.count}>{state.users.length} personas</Typography>
       </View>
       <FlatList
         data={state.users}

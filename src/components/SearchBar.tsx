@@ -4,8 +4,8 @@ import {
   TextInput,
   StyleSheet,
   Pressable,
-  Text,
 } from 'react-native';
+import Typography from './shared/Typography';
 
 interface Props {
   value: string;
@@ -16,7 +16,7 @@ interface Props {
 export default function SearchBar({ value, onChangeText, placeholder }: Props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.icon}>🔍</Text>
+      <Typography style={styles.icon}>🔍</Typography>
       <TextInput
         style={styles.input}
         value={value}
@@ -28,7 +28,7 @@ export default function SearchBar({ value, onChangeText, placeholder }: Props) {
       />
       {value.length > 0 && (
         <Pressable onPress={() => onChangeText('')} hitSlop={8}>
-          <Text style={styles.clear}>✕</Text>
+          <Typography style={styles.clear}>✕</Typography>
         </Pressable>
       )}
     </View>

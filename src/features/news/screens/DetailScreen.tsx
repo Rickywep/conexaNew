@@ -2,7 +2,6 @@ import React from 'react';
 import {
   ScrollView,
   View,
-  Text,
   Image,
   StyleSheet,
   Pressable,
@@ -10,6 +9,7 @@ import {
   StatusBar,
   Dimensions,
 } from 'react-native';
+import Typography from '../../../components/shared/Typography';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { NewsStackParamList } from '../types';
 import { useFavoritesStore } from '../../../store/useFavoritesStore';
@@ -37,33 +37,33 @@ export default function DetailScreen({ navigation, route }: Props) {
             resizeMode="cover"
           />
           <Pressable style={styles.backBtn} onPress={() => navigation.goBack()}>
-            <Text style={styles.backIcon}>‹</Text>
+            <Typography style={styles.backIcon}>‹</Typography>
           </Pressable>
           <Pressable
             style={styles.favBtn}
             onPress={() => toggleFavorite(article.id)}>
-            <Text style={styles.favIcon}>{fav ? '★' : '☆'}</Text>
+            <Typography style={styles.favIcon}>{fav ? '★' : '☆'}</Typography>
           </Pressable>
         </View>
 
         <View style={styles.body}>
           <View style={styles.meta}>
             <View style={styles.badge}>
-              <Text style={styles.badgeText}>{article.category}</Text>
+              <Typography style={styles.badgeText}>{article.category}</Typography>
             </View>
-            <Text style={styles.date}>{formatDate(article.publishedAt)}</Text>
+            <Typography style={styles.date}>{formatDate(article.publishedAt)}</Typography>
           </View>
 
-          <Text style={styles.title}>{article.title}</Text>
+          <Typography style={styles.title}>{article.title}</Typography>
 
           <View style={styles.authorRow}>
-            <Text style={styles.authorLabel}>Por </Text>
-            <Text style={styles.authorName}>{article.author}</Text>
+            <Typography style={styles.authorLabel}>Por </Typography>
+            <Typography style={styles.authorName}>{article.author}</Typography>
           </View>
 
           <View style={styles.divider} />
 
-          <Text style={styles.articleContent}>{article.content}</Text>
+          <Typography style={styles.articleContent}>{article.content}</Typography>
         </View>
       </ScrollView>
     </SafeAreaView>

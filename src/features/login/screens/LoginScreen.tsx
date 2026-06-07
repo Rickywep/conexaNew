@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   Pressable,
   SafeAreaView,
@@ -10,6 +9,7 @@ import {
   ScrollView,
   ActivityIndicator,
 } from 'react-native';
+import Typography from '../../../components/shared/Typography';
 import { useAppContext } from '../../../context/AppContext';
 import FormInput from '../components/FormInput';
 import { MOCK_CREDENTIALS } from '../types';
@@ -69,9 +69,9 @@ export default function LoginScreen() {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
-            <Text style={styles.logo}>📰</Text>
-            <Text style={styles.brand}>Conexa News</Text>
-            <Text style={styles.subtitle}>Iniciá sesión para continuar</Text>
+            <Typography style={styles.logo}>📰</Typography>
+            <Typography style={styles.brand}>Conexa News</Typography>
+            <Typography style={styles.subtitle}>Iniciá sesión para continuar</Typography>
           </View>
 
           <View style={styles.card}>
@@ -102,7 +102,7 @@ export default function LoginScreen() {
 
             {errors.general ? (
               <View style={styles.alertBox}>
-                <Text style={styles.alertText}>{errors.general}</Text>
+                <Typography style={styles.alertText}>{errors.general}</Typography>
               </View>
             ) : null}
 
@@ -116,15 +116,15 @@ export default function LoginScreen() {
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
-                <Text style={styles.buttonText}>Ingresar</Text>
+                <Typography style={styles.buttonText}>Ingresar</Typography>
               )}
             </Pressable>
 
             <View style={styles.hint}>
-              <Text style={styles.hintText}>Demo: </Text>
-              <Text style={styles.hintValue}>
+              <Typography style={styles.hintText}>Demo: </Typography>
+              <Typography style={styles.hintValue}>
                 {MOCK_CREDENTIALS.email} / {MOCK_CREDENTIALS.password}
-              </Text>
+              </Typography>
             </View>
           </View>
         </ScrollView>

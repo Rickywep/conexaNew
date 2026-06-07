@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   Pressable,
   FlatList,
   SafeAreaView,
   StatusBar,
 } from 'react-native';
+import Typography from '../../../components/shared/Typography';
 import { useNavigation } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { useAppContext } from '../../../context/AppContext';
@@ -43,10 +43,10 @@ export default function ProfileScreen() {
           params: { article: item },
         })
       }>
-      <Text style={styles.itemTitle} numberOfLines={2}>
+      <Typography style={styles.itemTitle} numberOfLines={2}>
         {item.title}
-      </Text>
-      <Text style={styles.itemChevron}>›</Text>
+      </Typography>
+      <Typography style={styles.itemChevron}>›</Typography>
     </Pressable>
   );
 
@@ -55,7 +55,7 @@ export default function ProfileScreen() {
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
 
       <View style={styles.headerBar}>
-        <Text style={styles.screenTitle}>Perfil</Text>
+        <Typography style={styles.screenTitle}>Perfil</Typography>
       </View>
 
       <FlatList
@@ -68,14 +68,14 @@ export default function ProfileScreen() {
           <>
             <View style={styles.avatarSection}>
               <View style={styles.avatar}>
-                <Text style={styles.avatarInitials}>
+                <Typography style={styles.avatarInitials}>
                   {MOCK_NAME.split(' ')
                     .map(w => w[0])
                     .join('')}
-                </Text>
+                </Typography>
               </View>
-              <Text style={styles.name}>{MOCK_NAME}</Text>
-              <Text style={styles.email}>{MOCK_CREDENTIALS.email}</Text>
+              <Typography style={styles.name}>{MOCK_NAME}</Typography>
+              <Typography style={styles.email}>{MOCK_CREDENTIALS.email}</Typography>
             </View>
 
             <Pressable
@@ -84,24 +84,24 @@ export default function ProfileScreen() {
                 pressed && styles.logoutBtnPressed,
               ]}
               onPress={handleLogout}>
-              <Text style={styles.logoutText}>Cerrar sesión</Text>
+              <Typography style={styles.logoutText}>Cerrar sesión</Typography>
             </Pressable>
 
             <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>Noticias favoritas</Text>
-              <Text style={styles.sectionCount}>
+              <Typography style={styles.sectionTitle}>Noticias favoritas</Typography>
+              <Typography style={styles.sectionCount}>
                 {favoriteArticles.length}
-              </Text>
+              </Typography>
             </View>
           </>
         }
         ListEmptyComponent={
           <View style={styles.empty}>
-            <Text style={styles.emptyIcon}>☆</Text>
-            <Text style={styles.emptyText}>Todavía no tenés favoritos</Text>
-            <Text style={styles.emptyHint}>
+            <Typography style={styles.emptyIcon}>☆</Typography>
+            <Typography style={styles.emptyText}>Todavía no tenés favoritos</Typography>
+            <Typography style={styles.emptyHint}>
               Tocá la estrella en cualquier noticia para guardarla acá
-            </Text>
+            </Typography>
           </View>
         }
       />
