@@ -78,5 +78,105 @@
     "author": "Valeria Mendez",
     "publishedAt": "2026-05-22T10:20:00Z",
     "category": "Seguridad"
+  },
+  {
+    "id": "9",
+    "title": "QR interoperable: más de 2 millones de comercios adheridos en todo el país",
+    "content": "A dos años del lanzamiento del estándar QR interoperable, el ecosistema acumula más de 2 millones de puntos de aceptación distribuidos en las 24 provincias. Los rubros con mayor penetración son gastronomía, indumentaria y supermercados de proximidad. El ticket promedio de las operaciones QR creció un 23% en términos reales, reflejando mayor confianza del consumidor en los medios de pago digitales.",
+    "summary": "El QR interoperable supera los 2 millones de comercios adheridos en todo el territorio nacional.",
+    "imageUrl": "https://picsum.photos/seed/news9/800/400",
+    "author": "Carla Ibáñez",
+    "publishedAt": "2026-05-20T09:00:00Z",
+    "category": "Mercado"
+  },
+  {
+    "id": "10",
+    "title": "BNPL en Argentina: el crédito en cuotas sin tarjeta gana terreno",
+    "content": "El modelo Buy Now Pay Later (BNPL) experimenta un crecimiento acelerado en el mercado local, con más de 15 fintechs operando el segmento y una cartera agregada que supera los $180.000 millones. Las plataformas de e-commerce reportan que el 34% de los checkouts ya ofrece alguna modalidad BNPL. Los reguladores observan el fenómeno y evalúan incorporar el producto al marco de crédito al consumo.",
+    "summary": "El BNPL crece con 15 fintechs activas y una cartera superior a los $180.000 millones.",
+    "imageUrl": "https://picsum.photos/seed/news10/800/400",
+    "author": "Ignacio Peralta",
+    "publishedAt": "2026-05-18T14:00:00Z",
+    "category": "Crédito"
+  },
+  {
+    "id": "11",
+    "title": "Identidad digital: biometría facial se consolida como estándar de onboarding",
+    "content": "La validación biométrica facial superó a los métodos documentales tradicionales como el mecanismo de onboarding más utilizado por las entidades financieras digitales. El 89% de los nuevos usuarios de billeteras digitales completó su alta mediante reconocimiento facial en el último trimestre. Los proveedores de identidad digital reportan tasas de aprobación del 96% con tiempos de proceso inferiores a 40 segundos.",
+    "summary": "La biometría facial lidera el onboarding digital con una tasa de aprobación del 96%.",
+    "imageUrl": "https://picsum.photos/seed/news11/800/400",
+    "author": "Natalia Ferreyra",
+    "publishedAt": "2026-05-15T11:30:00Z",
+    "category": "Tecnología"
+  },
+  {
+    "id": "12",
+    "title": "PyMEs y fintech: el crédito digital desplaza al cheque como instrumento de financiamiento",
+    "content": "Un relevamiento de la Cámara Argentina de Fintech indica que el 48% de las PyMEs que accedieron a financiamiento en el último año lo hicieron a través de plataformas digitales, desplazando al cheque de pago diferido como instrumento principal. Los plazos promedio de acreditación se redujeron de 72 horas a menos de 4 horas en las plataformas más eficientes. La mora promedio del segmento se mantiene por debajo del 4%.",
+    "summary": "El 48% de las PyMEs elige crédito digital sobre el cheque para financiarse.",
+    "imageUrl": "https://picsum.photos/seed/news12/800/400",
+    "author": "Roberto Acuña",
+    "publishedAt": "2026-05-12T08:45:00Z",
+    "category": "PyMEs"
+  },
+  {
+    "id": "13",
+    "title": "Remesas internacionales: fintechs reducen el costo promedio al 2,1%",
+    "content": "Las fintechs especializadas en transferencias internacionales lograron bajar el costo promedio de las remesas hacia Argentina al 2,1%, muy por debajo del promedio global del 6,2% registrado por el Banco Mundial. El volumen de remesas creció un 29% interanual, impulsado por la diáspora argentina y el aumento del trabajo remoto para empresas del exterior. Las stablecoins aparecen como canal alternativo en el 12% de las operaciones.",
+    "summary": "Las fintechs reducen el costo de remesas al 2,1%, menos de la mitad del promedio global.",
+    "imageUrl": "https://picsum.photos/seed/news13/800/400",
+    "author": "Luciana Paz",
+    "publishedAt": "2026-05-09T16:20:00Z",
+    "category": "Internacional"
+  },
+  {
+    "id": "14",
+    "title": "Infraestructura cloud para bancos: migración acelera en el sistema financiero",
+    "content": "El Banco Central actualizó las normas de computación en la nube para entidades financieras, habilitando arquitecturas multicloud y esquemas híbridos con mayores garantías de resiliencia. El 73% de los bancos medianos y grandes ya opera al menos un core bancario en infraestructura cloud. Los proveedores hiperescala reportan un crecimiento del 140% en contratos con el sector financiero argentino durante el último año.",
+    "summary": "El BCRA actualiza normas cloud y el 73% de los bancos ya opera en infraestructura en la nube.",
+    "imageUrl": "https://picsum.photos/seed/news14/800/400",
+    "author": "Hernán Castillo",
+    "publishedAt": "2026-05-06T10:00:00Z",
+    "category": "Tecnología"
+  },
+  {
+    "id": "15",
+    "title": "Tokenización de activos reales: primeras experiencias en el mercado de capitales local",
+    "content": "La Comisión Nacional de Valores (CNV) autorizó los primeros tres proyectos piloto de tokenización de activos reales en Argentina, que incluyen participaciones en fideicomisos inmobiliarios y carteras de crédito. Los tokens fueron emitidos sobre infraestructura blockchain permisionada y distribuidos entre inversores calificados. Los promotores estiman que la tokenización podría democratizar el acceso a activos históricamente reservados para grandes inversores.",
+    "summary": "La CNV autoriza los primeros pilotos de tokenización de activos reales en Argentina.",
+    "imageUrl": "https://picsum.photos/seed/news15/800/400",
+    "author": "Florencia Melo",
+    "publishedAt": "2026-05-03T13:15:00Z",
+    "category": "Inversión"
+  },
+  {
+    "id": "16",
+    "title": "Educación financiera digital: el Estado lanza programa nacional con fintechs",
+    "content": "El Ministerio de Educación y la Cámara Argentina de Fintech formalizaron un acuerdo para incorporar contenidos de educación financiera digital en escuelas secundarias de todo el país. El programa abarca alfabetización en medios de pago, presupuesto personal, crédito responsable y seguridad digital. Las primeras 500 escuelas participantes recibirán materiales y capacitación docente durante el segundo semestre.",
+    "summary": "Acuerdo entre el Estado y fintechs lleva educación financiera digital a 500 escuelas.",
+    "imageUrl": "https://picsum.photos/seed/news16/800/400",
+    "author": "Gabriela Suárez",
+    "publishedAt": "2026-04-30T09:30:00Z",
+    "category": "Inclusión"
+  },
+  {
+    "id": "17",
+    "title": "Seguro paramétrico digital: fintechs e insurtech se unen para el agro",
+    "content": "Una alianza entre fintechs, insurtech y cooperativas agropecuarias lanzó el primer producto de seguro paramétrico totalmente digital orientado al pequeño productor rural. La cobertura se activa automáticamente ante eventos climáticos registrados por sensores IoT y datos satelitales, sin necesidad de peritos ni procesos manuales. El producto ya opera en cuatro provincias con más de 3.200 productores adheridos.",
+    "summary": "Primer seguro paramétrico digital para pequeños productores rurales ya opera en cuatro provincias.",
+    "imageUrl": "https://picsum.photos/seed/news17/800/400",
+    "author": "Tomás Villalba",
+    "publishedAt": "2026-04-27T15:00:00Z",
+    "category": "Insurtech"
+  },
+  {
+    "id": "18",
+    "title": "Datos abiertos y scoring alternativo: nuevos modelos de evaluación crediticia",
+    "content": "Varias fintechs locales presentaron modelos de scoring crediticio basados en datos alternativos, como historial de pagos de servicios, comportamiento de consumo digital y actividad en plataformas de comercio electrónico. Estos modelos lograron extender el acceso al crédito a más de 800.000 personas sin historial bancario formal. Los primeros resultados muestran que la mora en esta población es comparable a la de segmentos bancarizados tradicionales.",
+    "summary": "Scoring con datos alternativos amplía el crédito a 800.000 personas sin historial bancario.",
+    "imageUrl": "https://picsum.photos/seed/news18/800/400",
+    "author": "Jimena Ortega",
+    "publishedAt": "2026-04-24T11:00:00Z",
+    "category": "Crédito"
   }
 ]

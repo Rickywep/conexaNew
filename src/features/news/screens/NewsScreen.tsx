@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
 import {
   View,
-  FlatList,
   StyleSheet,
   SafeAreaView,
   StatusBar,
 } from 'react-native';
+import { FlashList } from '@shopify/flash-list';
 import Typography from '../../../components/shared/Typography';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Article, NewsStackParamList } from '../types';
@@ -56,7 +56,7 @@ export default function NewsScreen({ navigation }: Props) {
       <StatusBar barStyle={colors.statusBar} backgroundColor={colors.surface} />
       <HeaderNews />
       <SearchBar value={state.searchQuery} onChangeText={handleSearch} />
-      <FlatList
+      <FlashList
         data={filtered}
         keyExtractor={item => item.id}
         renderItem={renderItem}
