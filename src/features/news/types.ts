@@ -8,3 +8,8 @@ export interface Article {
   publishedAt: string;
   category: string;
 }
+
+export type NewsStackParamList = {
+  NewsList: undefined;
+  Detail: { article: Article };
+};

@@ -4,6 +4,11 @@ import type { Article } from '../features/news/types';
 export type { User } from '../features/users/types';
 import type { User } from '../features/users/types';
 
+export type { NewsStackParamList } from '../features/news/types';
+import type { NewsStackParamList } from '../features/news/types';
+
+import { NavigatorScreenParams } from '@react-navigation/native';
+
 export interface AppState {
   articles: Article[];
   users: User[];
@@ -22,7 +27,6 @@ export type AppAction =
 
 export type RootStackParamList = {
   Tabs: undefined;
-  Detail: { article: Article };
 };
 
 export type AuthStackParamList = {
@@ -30,7 +34,7 @@ export type AuthStackParamList = {
 };
 
 export type TabParamList = {
-  News: undefined;
+  News: NavigatorScreenParams<NewsStackParamList> | undefined;
   Users: undefined;
   Profile: undefined;
 };

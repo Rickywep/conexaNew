@@ -4,16 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import {
-  RootStackParamList,
-  AuthStackParamList,
-  TabParamList,
-} from '../types';
+import { RootStackParamList, AuthStackParamList, TabParamList } from '../types';
 import { useAppContext } from '../context/AppContext';
 
 import LoginScreen from '../features/login/screens/LoginScreen';
-import NewsScreen from '../features/news/screens/NewsScreen';
-import DetailScreen from '../features/news/screens/DetailScreen';
+import NewsStack from '../features/news';
 import UsersScreen from '../features/users/screens/UsersScreen';
 import ProfileScreen from '../features/profile/screens/ProfileScreen';
 
@@ -60,7 +55,7 @@ function TabNavigator() {
       })}>
       <Tab.Screen
         name="News"
-        component={NewsScreen}
+        component={NewsStack}
         options={{ tabBarLabel: 'Noticias' }}
       />
       <Tab.Screen
@@ -81,11 +76,6 @@ function MainNavigator() {
   return (
     <MainStack.Navigator screenOptions={{ headerShown: false }}>
       <MainStack.Screen name="Tabs" component={TabNavigator} />
-      <MainStack.Screen
-        name="Detail"
-        component={DetailScreen}
-        options={{ animation: 'slide_from_right' }}
-      />
     </MainStack.Navigator>
   );
 }

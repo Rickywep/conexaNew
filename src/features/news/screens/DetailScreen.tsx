@@ -10,14 +10,11 @@ import {
   StatusBar,
   Dimensions,
 } from 'react-native';
-import {
-  NativeStackNavigationProp,
-  NativeStackScreenProps,
-} from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../types';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { NewsStackParamList } from '../types';
 import { useAppContext } from '../../../context/AppContext';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>;
+type Props = NativeStackScreenProps<NewsStackParamList, 'Detail'>;
 
 const { width } = Dimensions.get('window');
 

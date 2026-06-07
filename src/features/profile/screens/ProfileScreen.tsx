@@ -9,13 +9,13 @@ import {
   StatusBar,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { useAppContext } from '../../../context/AppContext';
-import { RootStackParamList } from '../../../types';
+import { TabParamList } from '../../../types';
 import type { Article } from '../../news/types';
 import { MOCK_CREDENTIALS } from '../../login/types';
 
-type Nav = NativeStackNavigationProp<RootStackParamList>;
+type Nav = BottomTabNavigationProp<TabParamList, 'Profile'>;
 
 const MOCK_NAME = 'Admin Conexa';
 
@@ -35,7 +35,12 @@ export default function ProfileScreen() {
   const renderItem = ({ item }: { item: Article }) => (
     <Pressable
       style={({ pressed }) => [styles.item, pressed && styles.itemPressed]}
-      onPress={() => navigation.navigate('Detail', { article: item })}>
+      onPress={() =>
+        navigation.navigate('News', {
+          screen: 'Detail',
+          params: { article: item },
+        })
+      }>
       <Text style={styles.itemTitle} numberOfLines={2}>
         {item.title}
       </Text>

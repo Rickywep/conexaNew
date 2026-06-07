@@ -8,13 +8,12 @@ import {
   StatusBar,
 } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../types';
-import { Article } from '../types';
+import { Article, NewsStackParamList } from '../types';
 import { useAppContext } from '../../../context/AppContext';
 import NewsCard from '../components/NewsCard';
 import SearchBar from '../../../components/SearchBar';
 
-type Nav = NativeStackNavigationProp<RootStackParamList, 'Tabs'>;
+type Nav = NativeStackNavigationProp<NewsStackParamList, 'NewsList'>;
 
 interface Props {
   navigation: Nav;
