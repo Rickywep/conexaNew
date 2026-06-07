@@ -1,0 +1,37 @@
+{"_e":"root:init","_t":1780859443006,"format":"v0-jsonl","version":"56.1.14"}
+{"_e":"env:mode","_t":1780859443006,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1780859443007,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1780859443124,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1780859443274,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1780859443547,"atlas":false,"workers":8,"host":"::","port":8081}
+{"_e":"metro:client_log","_t":1780859531985,"level":"error","data":["Project is incompatible with this version of Expo Go\n\nThis project requires a newer version of Expo Go.\n\nHow to fix this error:\nDownload the latest version of Expo Go from the Play Store."]}
+{"_e":"metro:client_log","_t":1780859545224,"level":"error","data":["Project is incompatible with this version of Expo Go\n\nThis project requires a newer version of Expo Go.\n\nHow to fix this error:\nDownload the latest version of Expo Go from the Play Store."]}
+{"_e":"metro:bundling:started","_t":1780859575109,"id":"4","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780859575109,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780859575111,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780859575394,"id":"4","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1780859575495,"id":"4","progress":0.08163265306122448,"total":21,"current":6}
+{"_e":"metro:bundling:progress","_t":1780859575602,"id":"4","progress":0.08163265306122448,"total":136,"current":15}
+{"_e":"metro:bundling:progress","_t":1780859575703,"id":"4","progress":0.08163265306122448,"total":149,"current":23}
+{"_e":"metro:bundling:progress","_t":1780859575803,"id":"4","progress":0.08163265306122448,"total":203,"current":42}
+{"_e":"metro:bundling:progress","_t":1780859575903,"id":"4","progress":0.11294006987368986,"total":244,"current":82}
+{"_e":"metro:bundling:progress","_t":1780859576004,"id":"4","progress":0.26388628260461633,"total":292,"current":150}
+{"_e":"metro:bundling:progress","_t":1780859576104,"id":"4","progress":0.36,"total":390,"current":234}
+{"_e":"metro:bundling:progress","_t":1780859576204,"id":"4","progress":0.45349910721532344,"total":444,"current":299}
+{"_e":"metro:bundling:progress","_t":1780859576304,"id":"4","progress":0.4677302153520941,"total":522,"current":357}
+{"_e":"metro:bundling:progress","_t":1780859576404,"id":"4","progress":0.6511225908341378,"total":549,"current":443}
+{"_e":"metro:bundling:progress","_t":1780859576504,"id":"4","progress":0.6820754524390369,"total":626,"current":517}
+{"_e":"metro:bundling:progress","_t":1780859576604,"id":"4","progress":0.6936577614779029,"total":706,"current":588}
+{"_e":"metro:bundling:progress","_t":1780859576704,"id":"4","progress":0.6936577614779029,"total":808,"current":655}
+{"_e":"metro:bundling:progress","_t":1780859576804,"id":"4","progress":0.7548035813087872,"total":846,"current":735}
+{"_e":"metro:bundling:progress","_t":1780859576904,"id":"4","progress":0.8427494413005563,"total":866,"current":795}
+{"_e":"metro:bundling:progress","_t":1780859577013,"id":"4","progress":0.9322235434007136,"total":899,"current":868}
+{"_e":"metro:bundling:progress","_t":1780859577113,"id":"4","progress":0.9913978894173603,"total":928,"current":924}
+{"_e":"metro:bundling:progress","_t":1780859577213,"id":"4","progress":0.9956989297148108,"total":929,"current":927}
+{"_e":"metro:bundling:progress","_t":1780859577282,"id":"4","progress":0.9978483061639019,"total":929,"current":928}
+{"_e":"metro:bundling:progress","_t":1780859577382,"id":"4","progress":0.9978483061639019,"total":1011,"current":994}
+{"_e":"metro:bundling:progress","_t":1780859577483,"id":"4","progress":0.9980440102481226,"total":1022,"current":1021}
+{"_e":"metro:bundling:progress","_t":1780859577851,"id":"4","progress":0.999,"total":1022,"current":1022}
+{"_e":"metro:bundling:progress","_t":1780859577952,"id":"4","progress":0.999,"total":1033,"current":1033}
+{"_e":"metro:bundling:done","_t":1780859577981,"id":"4","total":1033,"ms":2871.9215}
+{"_e":"metro:client_log","_t":1780859578749,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
