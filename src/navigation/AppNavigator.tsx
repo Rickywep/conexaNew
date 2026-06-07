@@ -4,13 +4,30 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { RootStackParamList, TabParamList } from '../types';
+import {
+  RootStackParamList,
+  AuthStackParamList,
+  TabParamList,
+} from '../types';
+import { useAppContext } from '../context/AppContext';
+
+import LoginScreen from '../features/login/screens/LoginScreen';
 import NewsScreen from '../features/news/screens/NewsScreen';
 import DetailScreen from '../features/news/screens/DetailScreen';
 import UsersScreen from '../features/users/screens/UsersScreen';
+import ProfileScreen from '../features/profile/screens/ProfileScreen';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const AuthStack = createNativeStackNavigator<AuthStackParamList>();
+const MainStack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<TabParamList>();
+
+function AuthNavigator() {
+  return (
+    <AuthStack.Navigator screenOptions={{ headerShown: false }}>
+      <AuthStack.Screen name="Login" component={LoginScreen} />
+    </AuthStack.Navigator>
+  );
+}
 
 function TabNavigator() {
   return (
@@ -34,6 +51,7 @@ function TabNavigator() {
           const icons: Record<string, string> = {
             News: focused ? '📰' : '🗞️',
             Users: focused ? '👥' : '👤',
+            Profile: focused ? '👤' : '🔘',
           };
           return (
             <Text style={{ fontSize: 22 }}>{icons[route.name] ?? '•'}</Text>
@@ -50,21 +68,34 @@ function TabNavigator() {
         component={UsersScreen}
         options={{ tabBarLabel: 'Equipo' }}
       />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{ tabBarLabel: 'Perfil' }}
+      />
     </Tab.Navigator>
   );
 }
 
+function MainNavigator() {
+  return (
+    <MainStack.Navigator screenOptions={{ headerShown: false }}>
+      <MainStack.Screen name="Tabs" component={TabNavigator} />
+      <MainStack.Screen
+        name="Detail"
+        component={DetailScreen}
+        options={{ animation: 'slide_from_right' }}
+      />
+    </MainStack.Navigator>
+  );
+}
+
 export default function AppNavigator() {
+  const { state } = useAppContext();
+
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Tabs" component={TabNavigator} />
-        <Stack.Screen
-          name="Detail"
-          component={DetailScreen}
-          options={{ animation: 'slide_from_right' }}
-        />
-      </Stack.Navigator>
+      {state.isAuthenticated ? <MainNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 }

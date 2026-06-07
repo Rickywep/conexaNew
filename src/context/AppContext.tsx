@@ -15,12 +15,14 @@ import articlesData from '../data/news.json';
 import usersData from '../data/users.json';
 
 const FAVORITES_KEY = '@conexanews_favorites';
+const AUTH_KEY = '@conexanews_auth';
 
 const initialState: AppState = {
   articles: articlesData as Article[],
   users: usersData as User[],
   favorites: [],
   searchQuery: '',
+  isAuthenticated: false,
 };
 
 interface AppContextValue {
@@ -34,10 +36,17 @@ const AppContext = createContext<AppContextValue | undefined>(undefined);
 export function AppProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
+  // Carga el estado persistido al iniciar
   useEffect(() => {
-    AsyncStorage.getItem(FAVORITES_KEY).then(raw => {
-      if (raw) {
-        dispatch({ type: 'LOAD_FAVORITES', payload: JSON.parse(raw) });
+    Promise.all([
+      AsyncStorage.getItem(FAVORITES_KEY),
+      AsyncStorage.getItem(AUTH_KEY),
+    ]).then(([favRaw, authRaw]) => {
+      if (favRaw) {
+        dispatch({ type: 'LOAD_FAVORITES', payload: JSON.parse(favRaw) });
+      }
+      if (authRaw) {
+        dispatch({ type: 'LOAD_AUTH', payload: JSON.parse(authRaw) });
       }
     });
   }, []);
@@ -45,6 +54,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     AsyncStorage.setItem(FAVORITES_KEY, JSON.stringify(state.favorites));
   }, [state.favorites]);
+
+  useEffect(() => {
+    AsyncStorage.setItem(AUTH_KEY, JSON.stringify(state.isAuthenticated));
+  }, [state.isAuthenticated]);
 
   const isFavorite = (id: string) => state.favorites.includes(id);
 

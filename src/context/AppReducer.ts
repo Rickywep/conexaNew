@@ -19,6 +19,15 @@ export function appReducer(state: AppState, action: AppAction): AppState {
     case 'LOAD_FAVORITES':
       return { ...state, favorites: action.payload };
 
+    case 'LOGIN':
+      return { ...state, isAuthenticated: true };
+
+    case 'LOGOUT':
+      return { ...state, isAuthenticated: false, searchQuery: '' };
+
+    case 'LOAD_AUTH':
+      return { ...state, isAuthenticated: action.payload };
+
     default:
       return state;
   }
