@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "title": "Argentina anuncia nuevo marco regulatorio para fintechs",
+    "content": "El Banco Central de la República Argentina (BCRA) presentó hoy un nuevo conjunto de normativas orientadas a fortalecer el ecosistema fintech local. Las medidas incluyen requisitos de capital mínimo actualizados, protocolos de ciberseguridad obligatorios y nuevas disposiciones para la protección al usuario de servicios financieros digitales. Los proveedores de servicios de pago (PSP) tendrán 90 días para adecuarse a la normativa.",
+    "summary": "El BCRA presentó nuevas normativas para fintechs con requisitos de capital y ciberseguridad.",
+    "imageUrl": "https://picsum.photos/seed/news1/800/400",
+    "author": "Redacción Económica",
+    "publishedAt": "2026-06-04T10:00:00Z",
+    "category": "Regulación"
+  },
+  {
+    "id": "2",
+    "title": "Pagos digitales crecen un 42% interanual en el primer trimestre",
+    "content": "Según el último informe del BCRA, las transferencias inmediatas y pagos QR registraron un crecimiento del 42% interanual en el primer trimestre del año. El volumen total de operaciones superó los $8 billones, impulsado principalmente por el segmento PyME y el comercio electrónico. Las billeteras digitales concentran el 67% de las transacciones en el segmento de personas.",
+    "summary": "Los pagos digitales crecieron 42% interanual según el último informe del BCRA.",
+    "imageUrl": "https://picsum.photos/seed/news2/800/400",
+    "author": "Laura Gómez",
+    "publishedAt": "2026-06-03T14:30:00Z",
+    "category": "Mercado"
+  },
+  {
+    "id": "3",
+    "title": "Lanzamiento de nueva infraestructura de pagos en tiempo real",
+    "content": "El consorcio bancario anunció la puesta en marcha de una nueva plataforma de pagos en tiempo real que promete liquidación de fondos en menos de 5 segundos. La iniciativa, desarrollada en conjunto con proveedores tecnológicos locales e internacionales, busca equiparar la infraestructura argentina con estándares internacionales como el PIX de Brasil. El sistema estará disponible para todos los PSP habilitados a partir del tercer trimestre.",
+    "summary": "Nueva plataforma promete liquidación de fondos en menos de 5 segundos para todos los PSP.",
+    "imageUrl": "https://picsum.photos/seed/news3/800/400",
+    "author": "Carlos Vidal",
+    "publishedAt": "2026-06-02T09:15:00Z",
+    "category": "Tecnología"
+  },
+  {
+    "id": "4",
+    "title": "Inclusión financiera: el 78% de los adultos ya tiene cuenta bancaria o billetera digital",
+    "content": "Un estudio publicado por el Ministerio de Economía revela que el 78% de los adultos argentinos cuenta con al menos un producto financiero digital. El informe destaca que las billeteras móviles fueron el principal vehículo de inclusión en zonas rurales y del norte del país, donde la cobertura bancaria tradicional es limitada. Sin embargo, persisten brechas de género y generacionales que requieren políticas activas.",
+    "summary": "El 78% de adultos argentinos ya tiene acceso a servicios financieros digitales.",
+    "imageUrl": "https://picsum.photos/seed/news4/800/400",
+    "author": "Ana Fernández",
+    "publishedAt": "2026-06-01T16:00:00Z",
+    "category": "Inclusión"
+  },
+  {
+    "id": "5",
+    "title": "Inversión en startups fintech alcanza récord histórico",
+    "content": "El primer semestre del año registró inversiones por USD 320 millones en el ecosistema fintech argentino, superando el récord previo de 2022. Los segmentos con mayor captación de capital fueron crédito digital, infraestructura de pagos y soluciones B2B para PyMEs. Los fondos de venture capital regionales y algunos actores globales lideraron las rondas más significativas, reflejando la madurez del mercado local.",
+    "summary": "USD 320 millones en inversiones fintech marcan un récord para el primer semestre.",
+    "imageUrl": "https://picsum.photos/seed/news5/800/400",
+    "author": "Martín Sosa",
+    "publishedAt": "2026-05-30T11:45:00Z",
+    "category": "Inversión"
+  },
+  {
+    "id": "6",
+    "title": "Open Finance: BCRA avanza en regulación de APIs abiertas",
+    "content": "El BCRA dio a conocer el borrador del marco regulatorio para Open Finance en Argentina, que establecerá estándares técnicos para el intercambio de datos financieros entre instituciones. El esquema contempla tres niveles de portabilidad: datos de cuenta, historial crediticio e iniciación de pagos. La consulta pública estará abierta hasta fines de mes y los estándares técnicos definitivos se publicarán en el cuarto trimestre.",
+    "summary": "El BCRA abre consulta pública sobre el marco de Open Finance y APIs abiertas.",
+    "imageUrl": "https://picsum.photos/seed/news6/800/400",
+    "author": "Sofía Ruiz",
+    "publishedAt": "2026-05-28T08:30:00Z",
+    "category": "Regulación"
+  },
+  {
+    "id": "7",
+    "title": "Criptoactivos: nueva guía del BCRA para PSP que operan con activos digitales",
+    "content": "El BCRA publicó una guía orientativa para los proveedores de servicios de pago que deseen incorporar operaciones con criptoactivos. El documento establece requisitos de segregación de fondos, divulgación al usuario y reporte de operaciones inusuales. Se espera que la regulación definitiva sea emitida antes de fin de año, alineándose con los estándares del GAFI y las recomendaciones del FSB.",
+    "summary": "Nueva guía del BCRA define requisitos para PSP que operen con criptoactivos.",
+    "imageUrl": "https://picsum.photos/seed/news7/800/400",
+    "author": "Diego Torres",
+    "publishedAt": "2026-05-25T13:00:00Z",
+    "category": "Criptoactivos"
+  },
+  {
+    "id": "8",
+    "title": "Fraude financiero digital: casos crecen pero el daño económico se reduce",
+    "content": "El informe anual de ciberseguridad financiera muestra un incremento del 18% en los intentos de fraude digital, pero una reducción del 31% en el monto promedio de pérdidas gracias a mejoras en los sistemas de detección temprana. La autenticación biométrica y los modelos de inteligencia artificial implementados por los principales PSP lograron bloquear el 94% de las operaciones fraudulentas antes de su concreción.",
+    "summary": "La IA y biometría reducen pérdidas por fraude digital en un 31% a pesar del aumento de intentos.",
+    "imageUrl": "https://picsum.photos/seed/news8/800/400",
+    "author": "Valeria Mendez",
+    "publishedAt": "2026-05-22T10:20:00Z",
+    "category": "Seguridad"
+  }
+]
