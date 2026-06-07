@@ -6,6 +6,7 @@ import {
   Pressable,
 } from 'react-native';
 import Typography from './shared/Typography';
+import { useTheme } from '../theme';
 
 interface Props {
   value: string;
@@ -14,21 +15,23 @@ interface Props {
 }
 
 export default function SearchBar({ value, onChangeText, placeholder }: Props) {
+  const { colors } = useTheme();
+
   return (
-    <View style={styles.container}>
-      <Typography style={styles.icon}>🔍</Typography>
+    <View style={[styles.container, { backgroundColor: colors.input }]}>
+      <Typography color={colors.textTertiary} style={styles.icon}>🔍</Typography>
       <TextInput
-        style={styles.input}
+        style={[styles.input, { color: colors.text }]}
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder ?? 'Buscar noticias...'}
-        placeholderTextColor="#9CA3AF"
+        placeholderTextColor={colors.textTertiary}
         returnKeyType="search"
         clearButtonMode="while-editing"
       />
       {value.length > 0 && (
         <Pressable onPress={() => onChangeText('')} hitSlop={8}>
-          <Typography style={styles.clear}>✕</Typography>
+          <Typography color={colors.textTertiary} style={styles.clear}>✕</Typography>
         </Pressable>
       )}
     </View>
@@ -39,7 +42,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F3F4F6',
     borderRadius: 12,
     paddingHorizontal: 12,
     marginHorizontal: 16,
@@ -53,11 +55,9 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 15,
-    color: '#111827',
   },
   clear: {
     fontSize: 14,
-    color: '#6B7280',
     paddingLeft: 8,
   },
 });

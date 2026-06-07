@@ -12,17 +12,19 @@ import { useNavigation } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { useAppContext } from '../../../context/AppContext';
 import { useFavoritesStore } from '../../../store/useFavoritesStore';
+import { useTheme } from '../../../theme';
 import { TabParamList } from '../../../types';
 import type { Article } from '../../news/types';
-import { MOCK_CREDENTIALS } from '../../login/types';
+import HeaderProfile from '../components/HeaderProfile';
+import Button from '../../../components/shared/Button';
+import ThemeToggle from '../components/ThemeToggle';
 
 type Nav = BottomTabNavigationProp<TabParamList, 'Profile'>;
-
-const MOCK_NAME = 'Admin Conexa';
 
 export default function ProfileScreen() {
   const { state, dispatch } = useAppContext();
   const { favorites } = useFavoritesStore();
+  const { colors } = useTheme();
   const navigation = useNavigation<Nav>();
 
   const favoriteArticles = useMemo(
@@ -36,28 +38,52 @@ export default function ProfileScreen() {
 
   const renderItem = ({ item }: { item: Article }) => (
     <Pressable
-      style={({ pressed }) => [styles.item, pressed && styles.itemPressed]}
+      style={({ pressed }) => [
+        styles.item,
+        { backgroundColor: colors.surface },
+        pressed && styles.itemPressed,
+      ]}
       onPress={() =>
         navigation.navigate('News', {
           screen: 'Detail',
           params: { article: item },
         })
-      }>
+      }
+    >
       <Typography style={styles.itemTitle} numberOfLines={2}>
         {item.title}
       </Typography>
-      <Typography style={styles.itemChevron}>›</Typography>
+      <Typography color={colors.textTertiary} style={styles.itemChevron}>
+        ›
+      </Typography>
     </Pressable>
   );
 
   return (
-    <SafeAreaView style={styles.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+    <SafeAreaView style={[styles.safe, { backgroundColor: colors.background }]}>
+      <StatusBar barStyle={colors.statusBar} backgroundColor={colors.surface} />
 
-      <View style={styles.headerBar}>
-        <Typography style={styles.screenTitle}>Perfil</Typography>
+      <View
+        style={[
+          styles.headerBar,
+          { backgroundColor: colors.surface, borderBottomColor: colors.border },
+        ]}
+      >
+        <Typography bold variant="h3">
+          Perfil
+        </Typography>
       </View>
 
+      <HeaderProfile />
+
+      <ThemeToggle />
+
+      <Button
+        variant="outlined"
+        label="Cerrar sesión"
+        onPress={handleLogout}
+        style={styles.logout}
+      />
       <FlatList
         data={favoriteArticles}
         keyExtractor={item => item.id}
@@ -65,42 +91,23 @@ export default function ProfileScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.list}
         ListHeaderComponent={
-          <>
-            <View style={styles.avatarSection}>
-              <View style={styles.avatar}>
-                <Typography style={styles.avatarInitials}>
-                  {MOCK_NAME.split(' ')
-                    .map(w => w[0])
-                    .join('')}
-                </Typography>
-              </View>
-              <Typography style={styles.name}>{MOCK_NAME}</Typography>
-              <Typography style={styles.email}>{MOCK_CREDENTIALS.email}</Typography>
-            </View>
-
-            <Pressable
-              style={({ pressed }) => [
-                styles.logoutBtn,
-                pressed && styles.logoutBtnPressed,
-              ]}
-              onPress={handleLogout}>
-              <Typography style={styles.logoutText}>Cerrar sesión</Typography>
-            </Pressable>
-
-            <View style={styles.sectionHeader}>
-              <Typography style={styles.sectionTitle}>Noticias favoritas</Typography>
-              <Typography style={styles.sectionCount}>
-                {favoriteArticles.length}
-              </Typography>
-            </View>
-          </>
+          <View style={styles.sectionHeader}>
+            <Typography bold variant='h5'>
+              Noticias favoritas
+            </Typography>
+            <Typography
+              color={colors.textSecondary}
+              variant='h5'
+              bold
+            >
+              {favoriteArticles.length}
+            </Typography>
+          </View>
         }
         ListEmptyComponent={
           <View style={styles.empty}>
-            <Typography style={styles.emptyIcon}>☆</Typography>
-            <Typography style={styles.emptyText}>Todavía no tenés favoritos</Typography>
-            <Typography style={styles.emptyHint}>
-              Tocá la estrella en cualquier noticia para guardarla acá
+            <Typography bold variant='h5'>
+              Todavía no tenés favoritos
             </Typography>
           </View>
         }
@@ -112,71 +119,19 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#F9FAFB',
   },
   headerBar: {
     paddingHorizontal: 16,
     paddingTop: 12,
     paddingBottom: 12,
-    backgroundColor: '#FFFFFF',
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#E5E7EB',
-  },
-  screenTitle: {
-    fontSize: 20,
-    fontWeight: '800',
-    color: '#111827',
   },
   list: {
     paddingBottom: 32,
   },
-  avatarSection: {
-    alignItems: 'center',
-    paddingVertical: 28,
-    backgroundColor: '#FFFFFF',
-    marginBottom: 12,
-  },
-  avatar: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: '#4F46E5',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 12,
-  },
-  avatarInitials: {
-    fontSize: 28,
-    fontWeight: '800',
-    color: '#FFFFFF',
-  },
-  name: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#111827',
-    marginBottom: 4,
-  },
-  email: {
-    fontSize: 14,
-    color: '#6B7280',
-  },
-  logoutBtn: {
+  logout: {
     marginHorizontal: 16,
     marginBottom: 24,
-    borderWidth: 1.5,
-    borderColor: '#EF4444',
-    borderRadius: 12,
-    height: 46,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logoutBtnPressed: {
-    backgroundColor: '#FEF2F2',
-  },
-  logoutText: {
-    fontSize: 15,
-    fontWeight: '600',
-    color: '#EF4444',
   },
   sectionHeader: {
     flexDirection: 'row',
@@ -185,20 +140,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginBottom: 8,
   },
-  sectionTitle: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#111827',
-  },
-  sectionCount: {
-    fontSize: 13,
-    color: '#6B7280',
-    fontWeight: '600',
-  },
   item: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
     paddingVertical: 14,
     paddingHorizontal: 16,
     marginHorizontal: 16,
@@ -216,36 +160,15 @@ const styles = StyleSheet.create({
   itemTitle: {
     flex: 1,
     fontSize: 14,
-    fontWeight: '500',
-    color: '#1F2937',
     lineHeight: 20,
     marginRight: 8,
   },
   itemChevron: {
     fontSize: 22,
-    color: '#9CA3AF',
   },
   empty: {
     alignItems: 'center',
     paddingHorizontal: 32,
     paddingTop: 24,
-  },
-  emptyIcon: {
-    fontSize: 40,
-    marginBottom: 12,
-    color: '#D1D5DB',
-  },
-  emptyText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#374151',
-    marginBottom: 6,
-    textAlign: 'center',
-  },
-  emptyHint: {
-    fontSize: 13,
-    color: '#9CA3AF',
-    textAlign: 'center',
-    lineHeight: 18,
   },
 });

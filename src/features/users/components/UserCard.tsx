@@ -1,89 +1,59 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, Pressable } from 'react-native';
 import Typography from '../../../components/shared/Typography';
+import { useTheme } from '../../../theme';
 import { User } from '../types';
 
 interface Props {
   user: User;
+  onPress: () => void;
 }
 
-export default function UserCard({ user }: Props) {
+export default function UserCard({ user, onPress }: Props) {
+  const { colors } = useTheme();
+
   return (
-    <View style={styles.card}>
+    <Pressable
+      style={({ pressed }) => [
+        styles.row,
+        { backgroundColor: colors.surface, borderBottomColor: colors.border },
+        pressed && styles.pressed,
+      ]}
+      onPress={onPress}>
       <Image
         source={{ uri: user.avatar }}
-        style={styles.avatar}
+        style={[styles.avatar, { backgroundColor: colors.border }]}
         resizeMode="cover"
       />
-      <View style={styles.info}>
-        <Typography style={styles.name}>
-          {user.firstName} {user.lastName}
-        </Typography>
-        <Typography style={styles.role}>{user.role}</Typography>
-        <View style={styles.detail}>
-          <Typography style={styles.label}>✉ </Typography>
-          <Typography style={styles.value} numberOfLines={1}>
-            {user.email}
-          </Typography>
-        </View>
-        <View style={styles.detail}>
-          <Typography style={styles.label}>📞 </Typography>
-          <Typography style={styles.value}>{user.phone}</Typography>
-        </View>
-      </View>
-    </View>
+      <Typography bold variant="h5" style={styles.name}>
+        {user.firstName} {user.lastName}
+      </Typography>
+      <Typography color={colors.textTertiary} style={styles.chevron}>›</Typography>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
+  row: {
     flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 14,
-    marginHorizontal: 16,
-    marginVertical: 6,
-    padding: 14,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.06,
-    shadowRadius: 6,
-    elevation: 2,
     alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    gap: 12,
+  },
+  pressed: {
+    opacity: 0.6,
   },
   avatar: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: '#E5E7EB',
-    marginRight: 14,
-  },
-  info: {
-    flex: 1,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
   },
   name: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#111827',
-    marginBottom: 2,
-  },
-  role: {
-    fontSize: 12,
-    color: '#4F46E5',
-    fontWeight: '600',
-    marginBottom: 6,
-  },
-  detail: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 2,
-  },
-  label: {
-    fontSize: 12,
-    color: '#6B7280',
-  },
-  value: {
-    fontSize: 13,
-    color: '#374151',
     flex: 1,
+  },
+  chevron: {
+    fontSize: 22,
   },
 });

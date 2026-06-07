@@ -1,16 +1,17 @@
 import React from 'react';
-import Typography from '../components/shared/Typography';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { RootStackParamList, AuthStackParamList, TabParamList } from '../types';
 import { useAppContext } from '../context/AppContext';
+import { useTheme } from '../theme';
 
 import LoginScreen from '../features/login/screens/LoginScreen';
 import NewsStack from '../features/news';
 import UsersScreen from '../features/users/screens/UsersScreen';
 import ProfileScreen from '../features/profile/screens/ProfileScreen';
+import Typography from '../components/shared/Typography';
 
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 const MainStack = createNativeStackNavigator<RootStackParamList>();
@@ -25,15 +26,17 @@ function AuthNavigator() {
 }
 
 function TabNavigator() {
+  const { colors } = useTheme();
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: '#4F46E5',
-        tabBarInactiveTintColor: '#9CA3AF',
+        tabBarActiveTintColor: colors.accent,
+        tabBarInactiveTintColor: colors.textTertiary,
         tabBarStyle: {
-          backgroundColor: '#FFFFFF',
-          borderTopColor: '#E5E7EB',
+          backgroundColor: colors.surface,
+          borderTopColor: colors.border,
           height: 60,
           paddingBottom: 8,
           paddingTop: 6,
@@ -44,15 +47,21 @@ function TabNavigator() {
         },
         tabBarIcon: ({ focused }) => {
           const icons: Record<string, string> = {
-            News: focused ? '📰' : '🗞️',
-            Users: focused ? '👥' : '👤',
-            Profile: focused ? '👤' : '🔘',
+            News: 'N',
+            Users: 'U',
+            Profile: 'P',
           };
           return (
-            <Typography style={{ fontSize: 22 }}>{icons[route.name] ?? '•'}</Typography>
+            <Typography
+              variant="h3"
+              color={focused ? colors.accent : colors.textSecondary}
+            >
+              {icons[route.name] ?? '•'}
+            </Typography>
           );
         },
-      })}>
+      })}
+    >
       <Tab.Screen
         name="News"
         component={NewsStack}

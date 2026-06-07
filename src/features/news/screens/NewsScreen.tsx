@@ -11,7 +11,9 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Article, NewsStackParamList } from '../types';
 import { useAppContext } from '../../../context/AppContext';
 import { useFavoritesStore } from '../../../store/useFavoritesStore';
+import { useTheme } from '../../../theme';
 import NewsCard from '../components/NewsCard';
+import HeaderNews from '../components/HeaderNews';
 import SearchBar from '../../../components/SearchBar';
 
 type Nav = NativeStackNavigationProp<NewsStackParamList, 'NewsList'>;
@@ -22,7 +24,8 @@ interface Props {
 
 export default function NewsScreen({ navigation }: Props) {
   const { state, dispatch } = useAppContext();
-  const { favorites, isFavorite, toggleFavorite } = useFavoritesStore();
+  const { isFavorite, toggleFavorite } = useFavoritesStore();
+  const { colors } = useTheme();
 
   const filtered = useMemo(() => {
     const q = state.searchQuery.toLowerCase().trim();
@@ -49,20 +52,10 @@ export default function NewsScreen({ navigation }: Props) {
   );
 
   return (
-    <SafeAreaView style={styles.safe}>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      <View style={styles.headerBar}>
-        <Typography style={styles.brand}>Conexa News</Typography>
-        <Typography style={styles.favCount}>
-          ★ {favorites.length}
-        </Typography>
-      </View>
+    <SafeAreaView style={[styles.safe, { backgroundColor: colors.background }]}>
+      <StatusBar barStyle={colors.statusBar} backgroundColor={colors.surface} />
+      <HeaderNews />
       <SearchBar value={state.searchQuery} onChangeText={handleSearch} />
-      {state.searchQuery.length > 0 && (
-        <Typography style={styles.resultCount}>
-          {filtered.length} resultado{filtered.length !== 1 ? 's' : ''}
-        </Typography>
-      )}
       <FlatList
         data={filtered}
         keyExtractor={item => item.id}
@@ -71,7 +64,9 @@ export default function NewsScreen({ navigation }: Props) {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           <View style={styles.empty}>
-            <Typography style={styles.emptyText}>Sin resultados para "{state.searchQuery}"</Typography>
+            <Typography color={colors.textTertiary} variant='h5'>
+              Sin resultados para "{state.searchQuery}"
+            </Typography>
           </View>
         }
       />
@@ -82,7 +77,6 @@ export default function NewsScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#F9FAFB',
   },
   headerBar: {
     flexDirection: 'row',
@@ -91,35 +85,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 12,
     paddingBottom: 4,
-    backgroundColor: '#FFFFFF',
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#E5E7EB',
-  },
-  brand: {
-    fontSize: 20,
-    fontWeight: '800',
-    color: '#111827',
-  },
-  favCount: {
-    fontSize: 15,
-    fontWeight: '600',
-    color: '#F59E0B',
-  },
-  resultCount: {
-    fontSize: 13,
-    color: '#6B7280',
-    marginLeft: 16,
-    marginBottom: 4,
   },
   list: {
     paddingBottom: 24,
   },
   empty: {
-    marginTop: 60,
     alignItems: 'center',
-  },
-  emptyText: {
-    fontSize: 15,
-    color: '#9CA3AF',
   },
 });

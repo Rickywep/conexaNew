@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, TextProps, StyleSheet } from 'react-native';
+import { useTheme } from '../../theme';
 
-type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'| 'h7';
 
 interface Props extends TextProps {
   variant?: Variant;
@@ -17,23 +18,27 @@ const FONT_SIZES: Record<Variant, number> = {
   h4: 18,
   h5: 16,
   h6: 14,
+  h7: 12,
 };
 
 export default function Typography({
   variant = 'h4',
   bold = false,
-  color = '#000',
+  color,
   style,
   children,
   ...rest
 }: Props) {
+  const { colors } = useTheme();
+
   return (
     <Text
       style={[
         styles.base,
-        { fontSize: FONT_SIZES[variant], color },
+        { fontSize: FONT_SIZES[variant] },
         bold && styles.bold,
         style,
+        { color: color ?? colors.text },
       ]}
       {...rest}>
       {children}
