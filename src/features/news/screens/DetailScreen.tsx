@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { NewsStackParamList } from '../types';
-import { useAppContext } from '../../../context/AppContext';
+import { useFavoritesStore } from '../../../store/useFavoritesStore';
 
 type Props = NativeStackScreenProps<NewsStackParamList, 'Detail'>;
 
@@ -20,7 +20,7 @@ const { width } = Dimensions.get('window');
 
 export default function DetailScreen({ navigation, route }: Props) {
   const { article } = route.params;
-  const { dispatch, isFavorite } = useAppContext();
+  const { toggleFavorite, isFavorite } = useFavoritesStore();
   const fav = isFavorite(article.id);
 
   return (
@@ -41,9 +41,7 @@ export default function DetailScreen({ navigation, route }: Props) {
           </Pressable>
           <Pressable
             style={styles.favBtn}
-            onPress={() =>
-              dispatch({ type: 'TOGGLE_FAVORITE', payload: article.id })
-            }>
+            onPress={() => toggleFavorite(article.id)}>
             <Text style={styles.favIcon}>{fav ? '★' : '☆'}</Text>
           </Pressable>
         </View>

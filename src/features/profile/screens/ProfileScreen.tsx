@@ -11,6 +11,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { useAppContext } from '../../../context/AppContext';
+import { useFavoritesStore } from '../../../store/useFavoritesStore';
 import { TabParamList } from '../../../types';
 import type { Article } from '../../news/types';
 import { MOCK_CREDENTIALS } from '../../login/types';
@@ -21,11 +22,12 @@ const MOCK_NAME = 'Admin Conexa';
 
 export default function ProfileScreen() {
   const { state, dispatch } = useAppContext();
+  const { favorites } = useFavoritesStore();
   const navigation = useNavigation<Nav>();
 
   const favoriteArticles = useMemo(
-    () => state.articles.filter(a => state.favorites.includes(a.id)),
-    [state.articles, state.favorites],
+    () => state.articles.filter(a => favorites.includes(a.id)),
+    [state.articles, favorites],
   );
 
   const handleLogout = () => {

@@ -10,6 +10,7 @@ import {
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Article, NewsStackParamList } from '../types';
 import { useAppContext } from '../../../context/AppContext';
+import { useFavoritesStore } from '../../../store/useFavoritesStore';
 import NewsCard from '../components/NewsCard';
 import SearchBar from '../../../components/SearchBar';
 
@@ -20,7 +21,8 @@ interface Props {
 }
 
 export default function NewsScreen({ navigation }: Props) {
-  const { state, dispatch, isFavorite } = useAppContext();
+  const { state, dispatch } = useAppContext();
+  const { favorites, isFavorite, toggleFavorite } = useFavoritesStore();
 
   const filtered = useMemo(() => {
     const q = state.searchQuery.toLowerCase().trim();
@@ -37,16 +39,12 @@ export default function NewsScreen({ navigation }: Props) {
     dispatch({ type: 'SET_SEARCH_QUERY', payload: text });
   };
 
-  const handleToggleFav = (id: string) => {
-    dispatch({ type: 'TOGGLE_FAVORITE', payload: id });
-  };
-
   const renderItem = ({ item }: { item: Article }) => (
     <NewsCard
       article={item}
       isFavorite={isFavorite(item.id)}
       onPress={() => navigation.navigate('Detail', { article: item })}
-      onToggleFavorite={() => handleToggleFav(item.id)}
+      onToggleFavorite={() => toggleFavorite(item.id)}
     />
   );
 
@@ -56,7 +54,7 @@ export default function NewsScreen({ navigation }: Props) {
       <View style={styles.headerBar}>
         <Text style={styles.brand}>Conexa News</Text>
         <Text style={styles.favCount}>
-          ★ {state.favorites.length}
+          ★ {favorites.length}
         </Text>
       </View>
       <SearchBar value={state.searchQuery} onChangeText={handleSearch} />

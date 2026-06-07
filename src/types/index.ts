@@ -12,15 +12,12 @@ import { NavigatorScreenParams } from '@react-navigation/native';
 export interface AppState {
   articles: Article[];
   users: User[];
-  favorites: string[];
   searchQuery: string;
   isAuthenticated: boolean;
 }
 
 export type AppAction =
   | { type: 'SET_SEARCH_QUERY'; payload: string }
-  | { type: 'TOGGLE_FAVORITE'; payload: string }
-  | { type: 'LOAD_FAVORITES'; payload: string[] }
   | { type: 'LOGIN' }
   | { type: 'LOGOUT' }
   | { type: 'LOAD_AUTH'; payload: boolean };
