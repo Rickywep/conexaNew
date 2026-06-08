@@ -21,12 +21,12 @@ export default function UserCard({ user, onPress }: Props) {
       ]}
       onPress={onPress}>
       <Image
-        source={{ uri: user.avatar }}
+        source={{ uri: `https://i.pravatar.cc/150?img=${user.id}` }}
         style={[styles.avatar, { backgroundColor: colors.border }]}
         resizeMode="cover"
       />
       <Typography bold variant="h5" style={styles.name}>
-        {user.firstName} {user.lastName}
+        {user.firstname} {user.lastname}
       </Typography>
       <Typography color={colors.textTertiary} style={styles.chevron}>›</Typography>
     </Pressable>

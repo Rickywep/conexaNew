@@ -8,18 +8,11 @@ import React, {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { AppState, AppAction } from '../types';
-import type { Article } from '../features/news/types';
-import type { User } from '../features/users/types';
 import { appReducer } from './AppReducer';
-import articlesData from '../data/news.json';
-import usersData from '../data/users.json';
 
 const AUTH_KEY = '@conexanews_auth';
 
 const initialState: AppState = {
-  articles: articlesData as Article[],
-  users: usersData as User[],
-  searchQuery: '',
   isAuthenticated: false,
 };
 

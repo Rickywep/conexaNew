@@ -1,15 +1,20 @@
-export interface Article {
-  id: string;
+export type Post = {
+  id: number;
+  slug: string;
+  url: string;
   title: string;
   content: string;
-  summary: string;
-  imageUrl: string;
-  author: string;
-  publishedAt: string;
+  image: string;
+  thumbnail: string;
+  status: string;
   category: string;
-}
+  publishedAt: string;
+  updatedAt: string;
+  userId: number;
+};
 
+export type PostsResponse = Post[];
 export type NewsStackParamList = {
   NewsList: undefined;
-  Detail: { article: Article };
+  Detail: { article: Post };
 };

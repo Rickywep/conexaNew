@@ -64,13 +64,13 @@ export default function UserBottomSheet({ user, onClose }: Props) {
         <View style={[styles.handle, { backgroundColor: colors.border }]} />
 
         <Image
-          source={{ uri: snapshot.avatar }}
+          source={{ uri: `https://i.pravatar.cc/150?img=${snapshot.id}` }}
           style={[styles.avatar, { backgroundColor: colors.border }]}
           resizeMode="cover"
         />
 
         <Typography bold variant="h3" style={styles.name}>
-          {snapshot.firstName} {snapshot.lastName}
+          {snapshot.firstname} {snapshot.lastname}
         </Typography>
 
 

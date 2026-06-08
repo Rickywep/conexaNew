@@ -2,11 +2,13 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Typography from '../../../components/shared/Typography';
 import { useTheme } from '../../../theme';
-import { useAppContext } from '../../../context/AppContext';
 
-export default function HeaderUsers() {
+interface Props {
+  count: number;
+}
+
+export default function HeaderUsers({ count }: Props) {
   const { colors } = useTheme();
-  const { state } = useAppContext();
 
   return (
     <View
@@ -16,7 +18,7 @@ export default function HeaderUsers() {
       ]}>
       <Typography bold variant='h3'>Equipo</Typography>
       <Typography color={colors.textSecondary} variant='h7'>
-        {state.users.length} personas
+        {count} personas
       </Typography>
     </View>
   );

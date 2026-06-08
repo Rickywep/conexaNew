@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import {
   View,
   StyleSheet,
@@ -14,29 +14,31 @@ import { useAppContext } from '../../../context/AppContext';
 import { useFavoritesStore } from '../../../store/useFavoritesStore';
 import { useTheme } from '../../../theme';
 import { TabParamList } from '../../../types';
-import type { Article } from '../../news/types';
+import type { Post } from '../../news/types';
 import HeaderProfile from '../components/HeaderProfile';
 import Button from '../../../components/shared/Button';
 import ThemeToggle from '../components/ThemeToggle';
+import { useNews } from '../../news/hooks/useNews';
 
 type Nav = BottomTabNavigationProp<TabParamList, 'Profile'>;
 
 export default function ProfileScreen() {
-  const { state, dispatch } = useAppContext();
+  const { dispatch } = useAppContext();
   const { favorites } = useFavoritesStore();
   const { colors } = useTheme();
   const navigation = useNavigation<Nav>();
+  const { articles } = useNews();
 
   const favoriteArticles = useMemo(
-    () => state.articles.filter(a => favorites.includes(a.id)),
-    [state.articles, favorites],
+    () => articles.filter(a => favorites.includes(a.id.toString())),
+    [articles, favorites],
   );
 
   const handleLogout = () => {
     dispatch({ type: 'LOGOUT' });
   };
 
-  const renderItem = ({ item }: { item: Article }) => (
+  const renderItem = ({ item }: { item: Post }) => (
     <Pressable
       style={({ pressed }) => [
         styles.item,
@@ -86,7 +88,7 @@ export default function ProfileScreen() {
       />
       <FlatList
         data={favoriteArticles}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id.toString()}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.list}
@@ -95,11 +97,7 @@ export default function ProfileScreen() {
             <Typography bold variant='h5'>
               Noticias favoritas
             </Typography>
-            <Typography
-              color={colors.textSecondary}
-              variant='h5'
-              bold
-            >
+            <Typography color={colors.textSecondary} variant='h5' bold>
               {favoriteArticles.length}
             </Typography>
           </View>

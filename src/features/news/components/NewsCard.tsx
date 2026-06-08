@@ -2,12 +2,12 @@ import React from 'react';
 import { View, Image, Pressable, StyleSheet, Dimensions } from 'react-native';
 import Typography from '../../../components/shared/Typography';
 import { useTheme } from '../../../theme';
-import { Article } from '../types';
+import { Post } from '../types';
 
 const { width } = Dimensions.get('window');
 
 interface Props {
-  article: Article;
+  article: Post;
   isFavorite: boolean;
   onPress: () => void;
   onToggleFavorite: () => void;
@@ -32,7 +32,7 @@ export default function NewsCard({
       android_ripple={{ color: colors.border }}
     >
       <Image
-        source={{ uri: article.imageUrl }}
+        source={{ uri: article.image }}
         style={[styles.image, { backgroundColor: colors.border }]}
         resizeMode="cover"
       />
@@ -60,14 +60,14 @@ export default function NewsCard({
             variant="h6"
             numberOfLines={3}
           >
-            {article.summary}
+            {article.status}
           </Typography>
           <View style={styles.footer}>
             <Typography color={colors.textTertiary} variant="h7">
-              {article.author}
+              {article.category}
             </Typography>
             <Typography color={colors.textTertiary} variant="h7">
-              {formatDate(article.publishedAt)}
+              {article.publishedAt}
             </Typography>
           </View>
         </View>

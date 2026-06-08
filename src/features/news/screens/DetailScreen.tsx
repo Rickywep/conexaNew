@@ -28,8 +28,8 @@ export default function DetailScreen({ navigation, route }: Props) {
         contentContainerStyle={styles.content}
       >
         <HeaderDetails
-          imageUrl={article.imageUrl}
-          articleId={article.id}
+          imageUrl={article.image}
+          articleId={article.id.toString()}
           onBack={() => navigation.goBack()}
         />
 
@@ -41,7 +41,7 @@ export default function DetailScreen({ navigation, route }: Props) {
               </Typography>
             </View>
             <Typography color={colors.textTertiary} variant="h7">
-              {formatDate(article.publishedAt)}
+              {article.publishedAt}
             </Typography>
           </View>
           <View style={{ gap: 6 }}>
@@ -54,7 +54,7 @@ export default function DetailScreen({ navigation, route }: Props) {
                 Por{' '}
               </Typography>
               <Typography bold color={colors.textSecondary} variant="h6">
-                {article.author}
+                {article.category}
               </Typography>
             </View>
           </View>
